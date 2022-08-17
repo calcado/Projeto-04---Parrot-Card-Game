@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(238, 249, 191) ;
+}
+header {
+    width: 540px;
+    height: 63px;
+    margin: 0 auto;
+}
+h1{
+    font-family: 'Roboto',sans-serif ;
+    color: #75B79E;
+    font-size: 56px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
+    align-items: center;
+}
+/* 
+@media (max-width: 335px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+} */
