@@ -3,26 +3,71 @@
 }
 body{
     background-color: rgb(238, 249, 191) ;
-}
-header {
-    width: 540px;
-    height: 63px;
-    margin: 0 auto;
-}
-h1{
-    font-family: 'Roboto',sans-serif ;
-    color: #75B79E;
-    font-size: 56px;
-    font-weight: 700;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center ;
-    align-items: center;
+.topo{
+    margin-top: 40px;  
+    margin-bottom: 47px;
+    font-size: 56px;
+    color: #75b79e;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    
 }
+
+
+.listaCartas{
+    margin-top: 50px;
+    display: grid;
+    grid-gap: 40px;
+
+.carta {
+    width: 117px;
+    height: 146px;
+    border-radius: 5px;
+    background-color:  #A7E9AF;
+    border: 1px solid #99cea8;
+    margin:25px 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 1s;
+    transform-style: preserve-3d;
+
+}
+
+
+.frentaCarta{
+    height: 100%;
+    width: 100%;
+    transition:all 2s linear;
+    position: relative;
+    
+    
+}
+.cartaVirada{
+    
+    transform: rotateY(180deg);
+    position: absolute ;
+    
+}
+
+
+
+/* .frenteCarta{
+    position: relative;
+}
+.cartaVirada{
+    position: absolute;
+} */
+
 /* 
 @media (max-width: 335px){
     .container{
