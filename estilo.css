@@ -1,3 +1,4 @@
+
 *{
     box-sizing: border-box;
 }
@@ -21,12 +22,13 @@ body{
 }
 
 
-.listaCartas{
+.jogo{
     margin-top: 50px;
     display: grid;
     grid-gap: 40px;
+}
 
-.carta {
+.carta{
     width: 117px;
     height: 146px;
     border-radius: 5px;
@@ -43,38 +45,49 @@ body{
 
 }
 
+img{
+ height: 100px;
+ width: 100px; 
+ margin-left: 10px;
+ margin-top: 25px;  
+}
 
-.frentaCarta{
+.carta.selecionada {
+    transform: rotateY(180deg);
+}
+
+.cartaFrente.cartaVirada{
     height: 100%;
     width: 100%;
-    transition:all 2s linear;
-    position: relative;
+    position: absolute;
+    backface-visibility: hidden;
     
     
 }
+
 .cartaVirada{
     
     transform: rotateY(180deg);
-    position: absolute ;
-    
+        
+}
+
+.desabilitada{
+
+    pointer-events: none;
+}
+
+.ponto{
+    transform: rotateY(180deg);
+    pointer-events: none;
 }
 
 
 
-/* .frenteCarta{
-    position: relative;
-}
-.cartaVirada{
-    position: absolute;
-} */
-
-/* 
 @media (max-width: 335px){
-    .container{
+    .jogo{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
+}
+ 
 
-} */
