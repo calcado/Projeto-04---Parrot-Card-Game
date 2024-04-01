@@ -17,10 +17,8 @@ body{
     color: #75b79e;
     font-weight: 700;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-    
+    font-family: 'Roboto', sans-serif;    
 }
-
 
 .jogo{
     margin-top: 50px;
@@ -38,11 +36,9 @@ body{
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    position: relative;
+    align-items: center;    
     transition: all 1s;
     transform-style: preserve-3d;
-
 }
 
 img{
@@ -60,19 +56,14 @@ img{
     height: 100%;
     width: 100%;
     position: absolute;
-    backface-visibility: hidden;
-    
-    
+    backface-visibility: hidden;    
 }
 
-.cartaVirada{
-    
-    transform: rotateY(180deg);
-        
+.cartaVirada{    
+    transform: rotateY(180deg);        
 }
 
 .desabilitada{
-
     pointer-events: none;
 }
 
