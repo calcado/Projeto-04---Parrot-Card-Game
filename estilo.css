@@ -5,6 +5,7 @@
 body{
     background-color: rgb(238, 249, 191);
     font-family: 'Roboto', sans-serif; 
+    text-align: center;
 }
 
 .title{
@@ -13,6 +14,7 @@ body{
     color:  #75b79e;
     text-align: center;
     margin-top: 20px;
+    
 }
 
 .container{
@@ -81,14 +83,14 @@ img{
     right: 0;
 }
 
-.backFace{
+.back-face{
     transform: rotateY(180deg);
 }
 
-.turn .backFace{
+.turn .back-face{
     transform: rotateY(0deg);
 }
  
-.turn .frontFace{
+.turn .fron-face{
     transform: rotateY(-180deg);
 }
