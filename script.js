@@ -11,6 +11,7 @@ const picturesCards = [
 ];
 
 const deck = [];
+let firstCard, secondCard;
 
 function validation() {
   if (
@@ -27,12 +28,40 @@ function separative() {
   return Math.random() - 0.5;
 }
 
+function unturnCard() {
+  firstCard.classList.remove("turn");
+  secondCard.classList.remove("turn");
+
+  firstCard = undefined;
+  secondCard = undefined;
+}
+
+function turnCard(card) {
+  if (firstCard === undefined) {
+    firstCard = card;
+    firstCard.classList.add("turn");
+  } else {
+    if (secondCard === undefined) {
+      secondCard = card;
+      secondCard.classList.add("turn");
+
+      if (firstCard.innerHTML === secondCard.innerHTML) {
+        console.log("acertou");
+        firstCard =  undefined;
+        secondCard = undefined;
+      } else {
+        console.log("errou");
+        setTimeout(unturnCard, 2500)
+      }
+    }
+  }
+}
+
 function setBoard() {
   const board = document.querySelector(".board");
-  
+
   for (let i = 0; i < deck.length; i++) {
-    
-    board.innerHTML +=  `
+    board.innerHTML += `
             <li class="card" onclick='turnCard(this)'>
                 <div class='front-face cardFace'>
                     <img src='imagens/front.png'>
@@ -51,13 +80,12 @@ function createDeck() {
     deck.push(card);
   }
 
-  console.log(deck)
+  console.log(deck);
 
   deck.sort(separative);
 
   setBoard();
 }
-
 
 function numberOfCards() {
   cardNumber = Number(prompt(text));
@@ -68,9 +96,8 @@ function numberOfCards() {
     );
   }
   console.log("arrumando o tabuleiro...");
-  
-  createDeck();
 
+  createDeck();
 }
 
 numberOfCards();
