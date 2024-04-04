@@ -14,6 +14,7 @@ const deck = [];
 let firstCard, secondCard;
 let score = 0;
 let rounds = 0;
+let time = 0;
 
 function validation() {
   if (
@@ -66,7 +67,12 @@ function turnCard(card) {
         resetCards()
 
         if(score === cardNumber){
-          alert(`YOU WIN!!! You beated the game in ${rounds} rounds`)
+          alert(`YOU WIN!!! You beated the game in ${rounds} rounds and ${time} seconds`)
+
+          const question = confirm('Would you like to play again?')
+          if(question){
+            window.location.reload();
+          }
         }
 
       } else {
@@ -93,6 +99,13 @@ function setBoard() {
   }
 }
 
+function count(){
+  time++
+  const clock = document.querySelector('.clock')
+  clock.innerHTML = time;  
+}
+
+
 function createDeck() {
   for (let i = 0; i < cardNumber / 2; i++) {
     let card = picturesCards[i];
@@ -105,6 +118,8 @@ function createDeck() {
   deck.sort(separative);
 
   setBoard();
+
+  setInterval(count, 1000)
 }
 
 function numberOfCards() {
