@@ -15,6 +15,7 @@ let firstCard, secondCard;
 let score = 0;
 let rounds = 0;
 let time = 0;
+let idInterval;
 
 function validation() {
   if (
@@ -68,16 +69,17 @@ function turnCard(card) {
 
         if(score === cardNumber){
           alert(`YOU WIN!!! You beated the game in ${rounds} rounds and ${time} seconds`)
-
+          clearInterval(idInterval)
           const question = confirm('Would you like to play again?')
           if(question){
+            
             window.location.reload();
           }
         }
 
       } else {
         console.log("missed");
-        setTimeout(unturnCard, 2500);
+        setTimeout(unturnCard, 2000);
       }
     }
   }
@@ -119,10 +121,11 @@ function createDeck() {
 
   setBoard();
 
-  setInterval(count, 1000)
+  idInterval = setInterval(count, 1000)
 }
 
 function numberOfCards() {
+  time = 0;
   cardNumber = Number(prompt(text));
   while (validation()) {
     alert("Quantidade de cartas inválida");
