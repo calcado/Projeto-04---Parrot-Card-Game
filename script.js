@@ -12,6 +12,8 @@ const picturesCards = [
 
 const deck = [];
 let firstCard, secondCard;
+let score = 0;
+let rounds = 0;
 
 function validation() {
   if (
@@ -28,15 +30,26 @@ function separative() {
   return Math.random() - 0.5;
 }
 
+
+function resetCards(){
+  firstCard = undefined;
+  secondCard = undefined;
+
+}
 function unturnCard() {
   firstCard.classList.remove("turn");
   secondCard.classList.remove("turn");
 
-  firstCard = undefined;
-  secondCard = undefined;
+  resetCards()
+  
 }
 
 function turnCard(card) {
+
+  if (card.classList.contains("turn")) {
+    return;
+  }
+  rounds++;
   if (firstCard === undefined) {
     firstCard = card;
     firstCard.classList.add("turn");
@@ -46,12 +59,19 @@ function turnCard(card) {
       secondCard.classList.add("turn");
 
       if (firstCard.innerHTML === secondCard.innerHTML) {
-        console.log("acertou");
-        firstCard =  undefined;
-        secondCard = undefined;
+        console.log("score");
+        
+        score += 2;
+
+        resetCards()
+
+        if(score === cardNumber){
+          alert(`YOU WIN!!! You beated the game in ${rounds} rounds`)
+        }
+
       } else {
-        console.log("errou");
-        setTimeout(unturnCard, 2500)
+        console.log("missed");
+        setTimeout(unturnCard, 2500);
       }
     }
   }
